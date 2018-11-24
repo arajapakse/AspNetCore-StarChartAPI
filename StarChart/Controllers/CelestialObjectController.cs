@@ -93,7 +93,7 @@ namespace StarChart.Controllers
             return NoContent();
         }
 
-        [HttpPatch("id/{name}")]
+        [HttpPatch("{id}/{name}")]
         public IActionResult RenameObject(int id, string name)
         {
             var existingObject = _context.CelestialObjects.Find(id);
@@ -111,7 +111,7 @@ namespace StarChart.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult RenameObject(int id)
+        public IActionResult Delete(int id)
         {
             var celestialObjects = _context.CelestialObjects.Where(e => e.Id == id || e.OrbitedObjectId == id);
 
